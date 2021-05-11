@@ -5,5 +5,5 @@ This action runs `jsonnetfmt` to check if jsonnet files are formatted in current
 ## Example usage
 
 ```yaml
-uses: kakkoyun/action-jsonnetfmt
+uses: nbycomp/action-jsonnetfmt
 ```
