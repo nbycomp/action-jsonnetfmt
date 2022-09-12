@@ -1,11 +1,9 @@
 # Container image that runs your code
-FROM golang:1.14-alpine3.11 as builder
+FROM golang:alpine3.16 as builder
 
-ENV GO111MODULE on
-RUN go get -u github.com/google/go-jsonnet/cmd/jsonnetfmt@master
+RUN go install github.com/google/go-jsonnet/cmd/jsonnetfmt@master
 
-
-FROM alpine:3.11 as runner
+FROM alpine:3.16 as runner
 
 COPY --from=builder /go/bin/jsonnetfmt /bin/jsonnetfmt
 
