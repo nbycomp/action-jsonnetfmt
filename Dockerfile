@@ -1,9 +1,9 @@
 # Container image that runs your code
-FROM golang:1.23.8-alpine as builder
+FROM golang:1.26.1-alpine as builder
 
-RUN go install github.com/google/go-jsonnet/cmd/jsonnetfmt@latest
+RUN go install github.com/google/go-jsonnet/cmd/jsonnetfmt@v0.22.0
 
-FROM golang:1.23.8-alpine as runner
+FROM golang:1.26.1-alpine as runner
 
 COPY --from=builder /go/bin/jsonnetfmt /bin/jsonnetfmt
 
